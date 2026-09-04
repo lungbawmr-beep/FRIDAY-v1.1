@@ -3,15 +3,14 @@ workflows:
     name: FRIDAY v1.1 APK
     max_build_duration: 60
 
-    scripts:
-      - name: Check Gradle
-        script: |
-          gradle --version
+    environment:
+      java: 17
 
+    scripts:
       - name: Build FRIDAY APK
         script: |
           cd android
-          gradle assembleDebug
+          gradle --no-daemon assembleDebug
 
     artifacts:
       - android/app/build/outputs/apk/debug/*.apk
