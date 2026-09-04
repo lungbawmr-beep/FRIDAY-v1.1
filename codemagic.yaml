@@ -3,14 +3,9 @@ workflows:
     name: FRIDAY v1.1 APK
     max_build_duration: 60
 
-    environment:
-      groups:
-        - friday_secrets
-
     scripts:
-      - name: Install Gradle
+      - name: Check Gradle
         script: |
-          cd android
           gradle --version
 
       - name: Build FRIDAY APK
